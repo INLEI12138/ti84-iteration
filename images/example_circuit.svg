@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="330" viewBox="0 0 620 330" font-family="DejaVu Sans" font-size="16">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9z" fill="#000"/></marker></defs>
+<rect width="620" height="330" fill="#fff"/>
+<g fill="none" stroke="#000" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M150 98 L150 60 L230 60"/>
+<path d="M230 60 L237 50 L250 70 L263 50 L276 70 L289 50 L302 70 L310 60"/>
+<path d="M310 60 L500 60 L500 130"/>
+<path d="M390 60 L390 110"/>
+<path d="M390 110 L400 117 L380 131 L400 145 L380 159 L400 173 L380 187 L390 194 L390 270"/>
+<path d="M500 166 L500 270"/>
+<path d="M150 142 L150 178"/>
+<path d="M150 222 L150 270 L500 270"/>
+<path d="M150 270 L150 284 M134 284 L166 284 M140 291 L160 291 M146 298 L154 298"/>
+<circle cx="150" cy="120" r="22"/>
+<circle cx="150" cy="200" r="22"/>
+<path d="M137 120 Q143.5 108 150 120 T163 120"/>
+<path d="M485 166 L515 166"/>
+</g>
+<polygon points="485,130 515,130 500,166" fill="#000"/>
+<circle cx="390" cy="60" r="4.5" fill="#000"/>
+<circle cx="390" cy="270" r="4.5" fill="#000"/>
+<text x="150" y="196" text-anchor="middle" font-size="18">+</text>
+<text x="150" y="215" text-anchor="middle" font-size="18">−</text>
+<line x1="560" y1="78" x2="560" y2="112" stroke="#000" stroke-width="2" marker-end="url(#ah)"/>
+<text x="571" y="100">i<tspan font-size="12" dy="4">D</tspan></text>
+<text x="536" y="140">+</text>
+<text x="534" y="160">v<tspan font-size="12" dy="4">D</tspan></text>
+<text x="536" y="185">−</text>
+<text x="118" y="125" text-anchor="end">v<tspan font-size="12" dy="4">s</tspan></text>
+<text x="118" y="196" text-anchor="end">V1</text>
+<text x="118" y="216" text-anchor="end">1.55 V</text>
+<text x="270" y="38" text-anchor="middle">R1 = 3 kΩ</text>
+<text x="390" y="44" text-anchor="middle" font-weight="bold">A</text>
+<text x="372" y="148" text-anchor="end">R2 = 3.5 kΩ</text>
+<text x="372" y="168" text-anchor="end" font-size="13" fill="#555">(to ground: V2 = 0)</text>
+<text x="300" y="318" text-anchor="middle" font-size="13" fill="#555">ITER mode 2: V1 = 1.55, R1 = 3K, V2 = 0, R2 = 3.5K</text>
+</svg>

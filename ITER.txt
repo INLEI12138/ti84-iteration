@@ -1,0 +1,191 @@
+If θ=π:Goto U
+0→θ
+ClrHome
+Float
+Menu("DIODE ITER V2","1 VS + R",M1,"2 TWO SOURCES",M2,"QUIT",QT)
+Lbl QT
+ClrHome
+Stop
+Lbl M1
+1→M
+ClrHome
+Disp "VS-R-DIODES-GND","UNITS OK: 10K 1MA"
+Input "VS (V)=",Str1
+π→θ
+prgmITER
+Ans→E
+Input "R (OHM)=",Str1
+π→θ
+prgmITER
+Ans→R
+Goto DP
+Lbl M2
+2→M
+ClrHome
+Disp "V1-R1-NODE-R2-V2","DIODES: NODE-GND","R2 TO GND: V2=0"
+Input "V1 (V)=",Str1
+π→θ
+prgmITER
+Ans→P
+Input "R1 (OHM)=",Str1
+π→θ
+prgmITER
+Ans→Q
+Input "V2 (V)=",Str1
+π→θ
+prgmITER
+Ans→S
+Input "R2 (OHM)=",Str1
+π→θ
+prgmITER
+Ans→U
+If Q≤0 or U≤0
+Then
+Disp "R1,R2 MUST BE >0"
+Stop
+End
+(PU+SQ)/(Q+U)→E
+QU/(Q+U)→R
+ClrHome
+Disp "THEVENIN","VTH (V)",round(E,5),"RTH (OHM)",round(R,3)
+Pause 
+Lbl DP
+ClrHome
+Disp "DIODE PARAMETERS","ENTER=DEFAULT"
+1→N
+""→Str1
+Input "N DIODES (1)=",Str1
+If length(Str1)
+Then
+π→θ
+prgmITER
+Ans→N
+End
+0.7→A
+""→Str1
+Input "VREF (0.7V)=",Str1
+If length(Str1)
+Then
+π→θ
+prgmITER
+Ans→A
+End
+0.001→B
+""→Str1
+Input "IREF (1MA)=",Str1
+If length(Str1)
+Then
+π→θ
+prgmITER
+Ans→B
+End
+0.025→T
+""→Str1
+Input "VT (25MV)=",Str1
+If length(Str1)
+Then
+π→θ
+prgmITER
+Ans→T
+End
+If R≤0 or B≤0 or T≤0 or N<1
+Then
+Disp "CHECK R,IREF,VT,N"
+Stop
+End
+(E-NA)/R→I
+If I≤0
+Then
+Disp "DIODE OFF"
+Stop
+End
+ClrHome
+Disp "{K  VD(V)  ID(MA)}"
+0→C
+For(K,1,25)
+I→J
+A+Tln(I/B)→V
+(E-NV)/R→I
+Disp {K,round(V,4),round(1000I,4)}
+If I≤0
+Then
+Disp "NO CONVERGE"
+Stop
+End
+If abs(1000(I-J))<5ᴇ⁻5
+Then
+K→C
+25→K
+End
+End
+Pause 
+ClrHome
+Output(1,1,"ID (MA)")
+Output(1,12,round(1000I,4))
+Output(2,1,"VD 1 (V)")
+Output(2,12,round(V,4))
+Output(3,1,"VD ALL (V)")
+Output(3,12,round(NV,4))
+Output(4,1,"VR (V)")
+Output(4,12,round(IR,4))
+Output(5,1,"RD 1 (OHM)")
+Output(5,12,round(T/I,3))
+Output(6,1,"ITERATIONS")
+Output(6,12,C)
+If M=2
+Then
+Output(7,1,"VTH (V)")
+Output(7,12,round(E,4))
+End
+If C=0
+Output(8,1,"NOT CONVERGED")
+Pause 
+If M=2
+Then
+ClrHome
+Disp "INTO NODE (MA)","FROM V1 VIA R1",round(1000(P-NV)/Q,4),"FROM V2 VIA R2",round(1000(S-NV)/U,4),"SUM = ID",round(1000I,4)
+Pause 
+End
+ClrHome
+Stop
+Lbl U
+0→θ
+Str1→Str9
+If length(Str9)>3
+Then
+If sub(Str9,length(Str9)-2,3)="OHM"
+sub(Str9,1,length(Str9)-3)→Str9
+End
+If length(Str9)>2
+Then
+If sub(Str9,length(Str9)-1,2)="HZ"
+sub(Str9,1,length(Str9)-2)→Str9
+End
+If length(Str9)>1
+Then
+If inString("FHVAW",sub(Str9,length(Str9),1))
+sub(Str9,1,length(Str9)-1)→Str9
+End
+1→θ
+If length(Str9)>3
+Then
+If sub(Str9,length(Str9)-2,3)="MEG"
+Then
+1ᴇ6→θ
+sub(Str9,1,length(Str9)-3)→Str9
+End
+End
+If θ=1 and length(Str9)>1
+Then
+inString("PNUMθKθG",sub(Str9,length(Str9),1))→θ
+If θ
+Then
+10^(3(θ-5))→θ
+sub(Str9,1,length(Str9)-1)→Str9
+Else
+1→θ
+End
+End
+θexpr(Str9)→θ
+θ
+Return

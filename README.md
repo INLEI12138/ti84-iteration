@@ -16,7 +16,7 @@ A TI-BASIC program that finds the DC operating point of a diode circuit by itera
    - starting from `VD = VREF`, every step is listed (`K, VD, ID`); it stops when ID changes by less than 0.05 µA (max 25 steps)
 4. Results: `ID`, `VD` per diode and for the string, voltage across `RTH`, **`rd = VT / ID`**, number of iterations
 5. Two-source mode also shows the current **into the node from each source** (positive = into the node) and checks that they add up to `ID`
-6. Unit suffixes on every input (same parser as [diode-ti84](https://github.com/INLEI12138/diode-ti84)): `10K`, `3.5KOHM`, `1MA`, `25MV`, `5V`, `4.7MEG` — `M` is milli, `MEG` is mega
+6. Unit suffixes on every input (same parser as [DIODE](https://github.com/INLEI12138/ti84-diode)): `10K`, `3.5KOHM`, `1MA`, `25MV`, `5V`, `4.7MEG` — `M` is milli, `MEG` is mega
 7. Diode parameters default to `N = 1`, `VREF = 0.7 V`, `IREF = 1 mA`, `VT = 25 mV` — just press `ENTER`
 
 ## 功能
@@ -29,7 +29,7 @@ A TI-BASIC program that finds the DC operating point of a diode circuit by itera
    - 从 `VD = VREF` 开始，每一步都列出来（`K, VD, ID`）；ID 变化小于 0.05 µA 时停止（最多 25 次）
 4. 结果：`ID`、单个二极管和整串的 `VD`、`RTH` 上的压降、**`rd = VT / ID`**、迭代次数
 5. 双电源模式还会显示**每个电源流进节点的电流**（正数 = 流进节点），并验证两者之和等于 `ID`
-6. 所有输入都能带单位（和 [diode-ti84](https://github.com/INLEI12138/diode-ti84) 用同一套识别代码）：`10K`、`3.5KOHM`、`1MA`、`25MV`、`5V`、`4.7MEG`。`M` 是毫，`MEG` 才是兆
+6. 所有输入都能带单位（和 [DIODE](https://github.com/INLEI12138/ti84-diode) 用同一套识别代码）：`10K`、`3.5KOHM`、`1MA`、`25MV`、`5V`、`4.7MEG`。`M` 是毫，`MEG` 才是兆
 7. 二极管参数有默认值：`N = 1`、`VREF = 0.7 V`、`IREF = 1 mA`、`VT = 25 mV`，直接按 `ENTER` 即可
 
 ---
@@ -101,6 +101,18 @@ Here the current from `V2` is −0.1847 mA: it flows out of the node through 3.5
 - `ITER.8xp` — program for the calculator / 可直接发送到计算器的程序
 - `ITER.txt` — readable source / 可读的源码
 - `images/example_circuit.svg`, `.png` — example circuit / 示例电路图
+
+
+## Related programs / 相关程序
+
+Other TI-84 Plus CE programs by INLEI / INLEI 的其他 TI-84 Plus CE 程序：
+
+| Program / 程序 | Purpose | 用途 |
+|---|---|---|
+| [AMPCALC](https://github.com/INLEI12138/ti84-ampcalc) | Op-amp (inverting / non-inverting) gain, phase and Bode plot | 运放（反相/同相）增益、相位与 Bode 图 |
+| [FILTER](https://github.com/INLEI12138/ti84-filter) | Passive RLC voltage-divider filter response and Bode plot | 无源 RLC 分压滤波器频率响应与 Bode 图 |
+| [DIODE](https://github.com/INLEI12138/ti84-diode) | Diode circuits: Shockley, series R, Zener, rectifiers, small-signal rd | 二极管电路：肖克利方程、串联电阻、稳压管、整流、小信号电阻 |
+| [ZFORMULA](https://github.com/INLEI12138/ti84-zformula) | Series / parallel RLC impedance formula reference | 串联/并联 RLC 阻抗公式速查 |
 
 ## License / 许可证
 
